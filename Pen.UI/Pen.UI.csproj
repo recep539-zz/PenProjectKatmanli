@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-Pen.UI-68AF293C-C4B8-424A-86E7-3A2253BE09F0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pen.Core\Pen.Core.csproj" />
+    <ProjectReference Include="..\Pen.Dal\Pen.Dal.csproj" />
+    <ProjectReference Include="..\Pen.DTO\Pen.DTO.csproj" />
+    <ProjectReference Include="..\Pen.Entity\Pen.Entity.csproj" />
+    <ProjectReference Include="..\Pen.Repository\Pen.Repository.csproj" />
+    <ProjectReference Include="..\Pen.UnitOfWork\Pen.UnitOfWork.csproj" />
+  </ItemGroup>
+
+</Project>

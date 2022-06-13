@@ -1,0 +1,172 @@
+﻿@model Pen.UI.Models.PenInformationModel
+
+@{
+    ViewData["Title"] = "Crud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>@Model.Title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form enctype="multipart/form-data" method="post">
+            <div class="form-group" hidden>
+                <label asp-for="PenInformation.Id" class="control-label"></label>
+                <input asp-for="PenInformation.Id" class="form-control" />
+                <span asp-validation-for="PenInformation.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group" >
+                <label asp-for="PenInformation.PenImage" class="control-label"></label>
+                <input asp-for="PenInformation.PenImage" class="form-control" />
+                <span asp-validation-for="PenInformation.PenImage" class="text-danger"></span>
+            </div>
+            <div class="form-group" >
+                <label asp-for="PenInformation.PenImage1" class="control-label"></label>
+                <input asp-for="PenInformation.PenImage1" class="form-control" />
+                <span asp-validation-for="PenInformation.PenImage1" class="text-danger"></span>
+            </div>
+            <div class="form-group" >
+                <label asp-for="PenInformation.PenImage2" class="control-label"></label>
+                <input asp-for="PenInformation.PenImage2" class="form-control" />
+                <span asp-validation-for="PenInformation.PenImage2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.Brand" class="control-label"></label>
+                <input asp-for="PenInformation.Brand" class="form-control" />
+                <span asp-validation-for="PenInformation.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.Model" class="control-label"></label>
+                <input asp-for="PenInformation.Model" class="form-control" />
+                <span asp-validation-for="PenInformation.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.ProductYear" class="control-label"></label>
+                <input asp-for="PenInformation.ProductYear" class="form-control" />
+                <span asp-validation-for="PenInformation.ProductYear" class="text-danger"></span>
+            </div>
+            <label>TipType</label>
+            <select class="form-control" asp-for="PenInformation.TipTypeId">
+                @foreach (var item in Model.TipTypeList)
+                {
+                    if (item.TipTypeId == Model.PenInformation.TipTypeId)
+                    {
+                        <option selected style="color:red;" name="PenInformation.TipTypeId" value="@item.TipTypeId">@item.TipTypePenName</option>
+                    }
+                    else
+                    {
+                        <option name="PenInformation.TipTypeId" value="@item.TipTypeId">@item.TipTypePenName</option>
+                    }
+
+                }
+            </select>
+            <label>FillingMechanism</label>
+            <select class="form-control" asp-for="PenInformation.FillingMechanismId">
+                @foreach (var item in Model.FillingMechanismList)
+                {
+                    if (item.FillingMechanismId == Model.PenInformation.FillingMechanismId)
+                    {
+                        <option selected style="color:red;" name="PenInformation.FillingMechanismId" value="@item.FillingMechanismId">@item.FillingMechanismName</option>
+                    }
+                    else
+                    {
+                        <option name="PenInformation.FillingMechanismId" value="@item.FillingMechanismId">@item.FillingMechanismName</option>
+                    }
+
+                }
+            </select>
+            <label>CoverType</label>
+            <select class="form-control" asp-for="PenInformation.CovertypeId">
+                @foreach (var item in Model.CoverTypeList)
+                {
+                    if (item.CoverTypeId == Model.PenInformation.CovertypeId)
+                    {
+                        <option selected style="color:red;" name="PenInformation.CoverTypeId" value="@item.CoverTypeId">@item.CoverTypeName</option>
+                    }
+                    else
+                    {
+                        <option name="PenInformation.CoverTypeId" value="@item.CoverTypeId">@item.CoverTypeName</option>
+                    }
+
+                }
+            </select>
+            <label>PenStatus</label>
+            <select class="form-control" asp-for="PenInformation.PenStatusId">
+                @foreach (var item in Model.PenStatusList)
+                {
+                    if (item.PenStatusId == Model.PenInformation.PenStatusId)
+                    {
+                        <option selected style="color:red;" name="PenInformation.PenStatusId" value="@item.PenStatusId">@item.PenStatusName</option>
+                    }
+                    else
+                    {
+                        <option name="PenInformation.PenStatusId" value="@item.PenStatusId">@item.PenStatusName</option>
+                    }
+
+                }
+            </select>
+            <label>BodyMaterial</label>
+            <select class="form-control" asp-for="PenInformation.BodyMaterialId">
+                @foreach (var item in Model.BodyMaterialList)
+                {
+                    if (item.BodyMaterialId == Model.PenInformation.BodyMaterialId)
+                    {
+                        <option selected style="color:red;" name="PenInformation.BodyMaterialId" value="@item.BodyMaterialId">@item.BodyMaterialName</option>
+                    }
+                    else
+                    {
+                        <option name="PenInformation.BodyMaterialId" value="@item.BodyMaterialId">@item.BodyMaterialName</option>
+                    }
+
+                }
+            </select>
+            <div class="form-group">
+                <label asp-for="PenInformation.PurchaseDate" class="control-label"></label>
+                <input asp-for="PenInformation.PurchaseDate" class="form-control" />
+                <span asp-validation-for="PenInformation.PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.Color" class="control-label"></label>
+                <input asp-for="PenInformation.Color" class="form-control" />
+                <span asp-validation-for="PenInformation.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.CapLength" class="control-label"></label>
+                <input asp-for="PenInformation.CapLength" class="form-control" />
+                <span asp-validation-for="PenInformation.CapLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.PenLengthExcludingCap" class="control-label"></label>
+                <input asp-for="PenInformation.PenLengthExcludingCap" class="form-control" />
+                <span asp-validation-for="PenInformation.PenLengthExcludingCap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.CapClosedPenLength" class="control-label"></label>
+                <input asp-for="PenInformation.CapClosedPenLength" class="form-control" />
+                <span asp-validation-for="PenInformation.CapClosedPenLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.DiameterOfThePen" class="control-label"></label>
+                <input asp-for="PenInformation.DiameterOfThePen" class="form-control" />
+                <span asp-validation-for="PenInformation.DiameterOfThePen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.Conduction" class="control-label"></label>
+                <input asp-for="PenInformation.Conduction" class="form-control" />
+                <span asp-validation-for="PenInformation.Conduction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenInformation.Explanation" class="control-label"></label>
+                <input asp-for="PenInformation.Explanation" class="form-control" />
+                <span asp-validation-for="PenInformation.Explanation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@Model.BtnVal" class="@Model.BtnClass" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a class="btn btn-dark" asp-action="List">Back to List</a>
+</div>
+

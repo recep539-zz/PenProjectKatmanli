@@ -1,0 +1,36 @@
+﻿@model Pen.UI.Models.BodyMaterialModel
+
+@{
+    ViewData["Title"] = "Crud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h4>@Model.Title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post">
+            <div class="form-group" hidden>
+                <label asp-for="BodyMaterial.Id" class="control-label"></label>
+                <input asp-for="BodyMaterial.Id" class="form-control" />
+                <span asp-validation-for="BodyMaterial.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BodyMaterial.Bodymaterial1" class="control-label"></label>
+                <input asp-for="BodyMaterial.Bodymaterial1" class="form-control" />
+                <span asp-validation-for="BodyMaterial.Bodymaterial1" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="@Model.BtnVal" class="@Model.BtnClass" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+    <div>
+        <a class="btn btn-dark" asp-action="List">Back to List</a>
+    </div>
+

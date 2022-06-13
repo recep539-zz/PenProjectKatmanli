@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Pen.DTO.FountainPenList>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FountainPenId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FountainPenName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FountainPenId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FountainPenName)
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.FountainPenId">Edit</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.FountainPenId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-dark" asp-action="List">Back to List </a>
+</div>

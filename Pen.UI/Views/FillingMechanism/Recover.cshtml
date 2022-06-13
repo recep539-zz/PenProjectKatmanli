@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Pen.DTO.FillingMechanismList>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FillingMechanismId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FillingMechanismName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FillingMechanismId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FillingMechanismName)
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.FillingMechanismId">Edit</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.FillingMechanismId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-dark" asp-action="List">Back to List </a>
+</div>

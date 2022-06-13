@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Pen.DTO.PenStatusList>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PenStatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PenStatusName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PenStatusId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PenStatusName)
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-dark" asp-action="List">Back to List </a>
+</div>
